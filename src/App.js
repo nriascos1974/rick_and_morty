@@ -14,18 +14,28 @@ function App() {
     fetch(`${URL_BASE}/character/${character}?key=${API_KEY}`)
       .then((response) => response.json())
       .then((data) => {
-        if (data.name) {
+        if (data.name && (characters.findIndex(obj => obj.id === data.id ) === -1)) {
           setCharacters((oldChars) => [...oldChars, data]);
-        } else {
+        } else if (characters.findIndex(obj => obj.id === data.id ) !== -1){
+          window.alert("Ya fue Agregado el personajes con ese ID");
+        }        
+        else {
           window.alert("No hay personajes con ese ID");
         }
       });
   }
 
+  function onClose(character) {
+    console.log(characters)
+    const filterCharacter = characters.filter((char) => char.id !== character);
+    console.log(filterCharacter)
+    setCharacters(filterCharacter);
+  }
+
   return (
     <div className="App" style={{ padding: "25px" }}>
       <Nav onSearch={onSearch} />
-      <Cards characters={characters} />
+      <Cards characters={characters} onClose={onClose} />
     </div>
   );
 }

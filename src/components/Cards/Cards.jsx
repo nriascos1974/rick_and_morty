@@ -1,18 +1,19 @@
 import Card from "../Card/Card";
 
-export default function Cards(props) {
-  const { characters } = props;
+export default function Cards({characters, onClose}) {
+  //const { characters } = props;
   
   return (
     <div style={{display:"flex", justifyContent:"space-around"}}>
       {characters.map((card, index) => (
         <Card 
           key={index}
+          id = {card.id}
           name={card.name}
           species={card.species}
           gender={card.gender}
           image={card.image}
-          onClose={() => window.alert("Emulamos que se cierra la card")}
+          onClose={onClose}
         />
       ))}
     </div>
