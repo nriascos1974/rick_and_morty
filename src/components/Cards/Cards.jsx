@@ -7,13 +7,13 @@ export default function Cards({characters, onClose}) {
     <div style={{display:"flex", justifyContent:"space-around"}}>
       {characters.map((card, index) => (
         <Card 
-          key={index}
+          key={card.id}
           id = {card.id}
           name={card.name}
           species={card.species}
           gender={card.gender}
           image={card.image}
-          onClose={onClose}
+          onClose={() => onClose(card.id)}
         />
       ))}
     </div>
