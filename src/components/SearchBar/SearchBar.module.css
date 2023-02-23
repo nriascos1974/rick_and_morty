@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    margin: auto;
+    width: 50%;
+    margin-top: 20px;
+}
+
+.container input {
+    border-radius: 5px;
+    height: 20px;
+}
+
+.container button {
+    border-radius: 5px;
+    height: 20px;
+    background-color: darkslategray;
+    color: white;
+    padding: 0 10 0 10px;
+    font-size: 10px;
+    border: 0px;
+}
+
+.busqueda {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input {
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .Button {
+    background-color: #0b0d72;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .Button:hover {
+    background-color: #0b0d7290;
+  }
+  

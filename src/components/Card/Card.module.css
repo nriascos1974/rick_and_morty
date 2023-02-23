@@ -1,0 +1,63 @@
+.container {
+  margin-top: 30px;
+  border: 1px solid grey;
+  background-color: #4b87f3;
+  border-radius: 10px;
+  width: 250px;
+
+  padding: 5px;
+  box-shadow: 0 0 10px rgb(211, 206, 206);
+}
+
+.image {
+  border-radius: 16px;
+  margin-top: 10px;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buttonContainer button {
+  background-color: #0b0d72;
+  color: white;
+  border: 0px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.buttonContainer button:hover {
+  background-color: #0b0d7290;
+
+}
+
+.dataContainer {
+  position: relative;
+ 
+}
+
+.name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgba(8, 6, 116, 0.5); /* Agrega un fondo semitransparente para hacer que el texto sea más legible */
+  color: white; /* Cambia el color del texto si es necesario */
+  padding: 5px; /* Agrega un poco de espacio alrededor del texto */
+  margin: 0; /* Elimina el margen predeterminado del encabezado <h2> */
+}
+
+.SG {
+  display: flex;
+  color: aliceblue;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+}
+
+

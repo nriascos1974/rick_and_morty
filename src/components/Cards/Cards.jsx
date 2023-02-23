@@ -1,12 +1,12 @@
-import Card from "./Card";
+import Card from "../Card/Card";
 
 export default function Cards(props) {
   const { characters } = props;
   
   return (
-    <>
+    <div style={{display:"flex", justifyContent:"space-around"}}>
       {characters.map((card, index) => (
-        <Card
+        <Card 
           key={index}
           name={card.name}
           species={card.species}
@@ -15,6 +15,6 @@ export default function Cards(props) {
           onClose={() => window.alert("Emulamos que se cierra la card")}
         />
       ))}
-    </>
+    </div>
   );
 }
