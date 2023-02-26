@@ -3,10 +3,10 @@
   border: 1px solid grey;
   background-color: #4b87f3;
   border-radius: 10px;
-  width: 250px;
-
+  width: 240px;
   padding: 5px;
   box-shadow: 0 0 10px rgb(211, 206, 206);
+  
 }
 
 .image {
@@ -43,9 +43,9 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 96%;
   border-radius: 10px;
-  background-color: rgba(8, 6, 116, 0.5); /* Agrega un fondo semitransparente para hacer que el texto sea más legible */
+  background-color: rgba(8, 6, 116, 0.329); /* Agrega un fondo semitransparente para hacer que el texto sea más legible */
   color: white; /* Cambia el color del texto si es necesario */
   padding: 5px; /* Agrega un poco de espacio alrededor del texto */
   margin: 0; /* Elimina el margen predeterminado del encabezado <h2> */

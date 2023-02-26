@@ -4,28 +4,33 @@ import style from "./SearchBar.module.css";
 export default function SearchBar({ onSearch }) {
   const [character, setCaracter] = useState("");
 
-  /* function ramdom() {
+  function random() {
     const characterRandom = Math.floor(Math.random() *826)
-    setCaracter(characterRandom,console.log(character))
-    return character
-  } */
-
+    setCaracter(characterRandom)
+    //console.log(character)
+    return characterRandom
+  }
 
   return (
     <div className={style.busqueda}>
-      {/* <button className={style.Button} onClick={ramdom}>
+      <button className={style.Button} onClick={() => onSearch("")}>
+        Clean
+      </button>
+      
+      <button className={style.Button} onClick={() => onSearch(random())}>
         Random
       </button>
-      <br /> */}  
-     <input
+
+      <input
         value={character}
         onChange={(e) => setCaracter(e.target.value)}
         className={style.input}
         type="search"
-        placeholder="Agregar…"
+        placeholder="Search…"
       />
+      
       <button className={style.Button} onClick={() => onSearch(character)}>
-        Agregar
+        Add
       </button>
     </div>
   );

@@ -1,7 +1,7 @@
 .container {
     display: flex;
     margin: auto;
-    width: 50%;
+    width: 60%;
     margin-top: 20px;
 }
 
@@ -24,6 +24,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 25%;
   }
   
   .input {

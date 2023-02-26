@@ -1,0 +1,83 @@
+.errorInput {
+  border: solid red 2px;
+  border-radius: 0.2em;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.errorText {
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.404);
+  border-radius: 5px;
+  color: red;
+}
+
+.input {
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+
+}
+
+.infocontainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 20px;
+  color: aliceblue;
+}
+
+.container {
+  height: 600px;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(90, 92, 199, 0.349);
+/*   color: aliceblue; */
+}
+
+.container img{
+  width: 70%;
+  height: 30%;
+}
+
+.Button {
+  margin-top: 5%;
+  background-color: #15ac3b;
+  border: none;
+  color: white;
+  padding: 5px;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Button:hover {
+  background-color: #15ac3b90;
+}
+

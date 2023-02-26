@@ -4,9 +4,9 @@ export default function Cards({characters, onClose}) {
   //const { characters } = props;
   
   return (
-    <div style={{display:"flex", justifyContent:"space-around"}}>
+    <div style={{display:"flex", flexWrap: "wrap", justifyContent:"space-around"}}>
       {characters.map((card, index) => (
-        <Card 
+        <Card style={{flexbasis: '20%'}}
           key={card.id}
           id = {card.id}
           name={card.name}
