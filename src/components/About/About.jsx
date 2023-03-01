@@ -9,7 +9,7 @@ function About() {
         About
       </h1>
       <div className={styles.foto}>
-        <img className={styles.image} src={yo} />
+        <img className={styles.image} src={yo} alt="" />
         <p style={{width:'40%', textAlign:"justify"}}>Yo soy <strong>Nestor Jair Riascos Mosquera</strong>, Ingeniero de Sistemas, vivo en la ciudad de Medellín, Antioquia - Colombia. Desarrollador de esta Aplicación. </p>
       </div>
       <p style={{ color: "white", textAlign: "center", marginLeft: "40px" }}>

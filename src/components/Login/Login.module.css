@@ -4,7 +4,8 @@
   padding: 10px;
   border-radius: 5px;
   font-size: 16px;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   margin-bottom: 20px;
 }
 
@@ -20,34 +21,33 @@
   padding: 10px;
   border-radius: 5px;
   font-size: 16px;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   margin-bottom: 20px;
 }
 
 .formContainer {
   display: flex;
   flex-direction: column;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
-
+  height: 100%;
 }
 
 .infocontainer{
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
   font-size: 20px;
   color: aliceblue;
 }
 
 .container {
-  height: 600px;
-  width: 800px;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   margin-top: 30px;
   border: 1px solid grey;
   border-radius: 10px;
@@ -81,3 +81,17 @@
   background-color: #15ac3b90;
 }
 
+@media only screen and (min-width: 600px) {
+  .formContainer {
+    flex-direction: row;
+  }
+  
+  .infocontainer{
+    margin-right: 20px;
+  }
+  
+  .Button {
+    margin-top: 0;
+    margin-left: 20px;
+  }
+}

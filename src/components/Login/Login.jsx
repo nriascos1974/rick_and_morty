@@ -34,7 +34,7 @@ function Login({ login }) {
 
     if (Object.values(userDataError).length) {
       alert("Debe ingresar User Name y Password");
-      return
+      return;
     }
     login(userData);
   }
@@ -43,34 +43,41 @@ function Login({ login }) {
     <div className={styles.formContainer}>
       <form onSubmit={handleSubmit}>
         <div className={styles.container}>
-        <img src={logo} alt="" />
+          <img src={logo} alt="" />
           <div className={styles.infocontainer}>
-            
-            <label style={{marginBottom:"20px"}}>User Name</label>
+            <label style={{ marginBottom: "20px" }}>User Name</label>
             <input
               autoFocus
-              className={userDataError.username ? styles.errorInput : styles.input}
+              className={
+                userDataError.username ? styles.errorInput : styles.input
+              }
               type="text"
               name="username"
               placeholder="Escribe tu email..."
               onChange={handleChange}
             />
-            {userDataError.username ? <p className={styles.errorText}>{userDataError.username}</p> : null}
-            
-            <label style={{marginBottom:"20px"}}>Password</label>
+            {userDataError.username ? (
+              <p className={styles.errorText}>{userDataError.username}</p>
+            ) : null}
+
+            <label style={{ marginBottom: "20px" }}>Password</label>
             <input
-              className={userDataError.password ? styles.errorInput : styles.input}
-              
+              className={
+                userDataError.password ? styles.errorInput : styles.input
+              }
               type="password"
               name="password"
               onChange={handleChange}
               placeholder="Escribe tu password..."
             />
-            {userDataError.password ? <p className={styles.errorText}>{userDataError.password}</p> : null}
+            {userDataError.password ? (
+              <p className={styles.errorText}>{userDataError.password}</p>
+            ) : null}
+            
+            <button className={styles.Button} type="submit">
+              <strong>Login</strong>
+            </button>
           </div>
-          <button className={styles.Button} type="submit">
-            <strong>Login</strong>
-          </button>
         </div>
       </form>
     </div>

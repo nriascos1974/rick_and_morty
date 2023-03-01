@@ -7,8 +7,11 @@ import About from "./components/About/About";
 import NoFound from "./components/NoFound/NoFound";
 import Login from "./components/Login/Login";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import Favorites from "./components/Favorites/Favorites";
+import { connect } from "react-redux";
+import { deleteFavorites } from "./redux/actions";
 
-function App() {
+export function App({deleteFavorites}) {
   const [characters, setCharacters] = useState([]);
 
   //!*Hooks para capturar la url solicitada por el usuario, en este caso la primera que se pide es la "/" con esta voy a validar para renderizar la NavBar, useLocation devuelve un objeto y este tiene la propiedad pathname
@@ -63,6 +66,7 @@ function App() {
   //!* Funcion para cerrar cada tarjeta
   function onClose(character) {
     const filterCharacter = characters.filter((char) => char.id !== character);
+    deleteFavorites(character)
     setCharacters(filterCharacter);
   }
 
@@ -93,6 +97,8 @@ function App() {
           element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
+        <Route path="/favorites" element={<Favorites />} />
+
         <Route path="/detail/:detailId" element={<Detail />} />
         <Route path="*" element={<NoFound />} />
       </Routes>
@@ -100,4 +106,12 @@ function App() {
   );
 }
 
-export default App;
+export const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteFavorites: (id) => dispatch(deleteFavorites(id)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(App);
+
+

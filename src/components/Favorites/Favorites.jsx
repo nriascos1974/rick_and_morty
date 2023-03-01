@@ -1,11 +1,12 @@
 import Card from "../Card/Card";
+import { connect } from "react-redux";
 
-export default function Cards({characters, onClose}) {
+export function Favorites({characters, onClose, myFavorites}) {
  
   
   return (
     <div style={{display:"flex", flexWrap: "wrap", justifyContent:"space-around"}}>
-      {characters.map((card, index) => (
+      {myFavorites.map((card, index) => (
         <Card style={{flexbasis: '20%'}}
           key={card.id}
           id = {card.id}
@@ -19,3 +20,11 @@ export default function Cards({characters, onClose}) {
     </div>
   );
 }
+
+export const mapStateToProps = (state) => {
+    return { myFavorites: state.myFavorites };
+  };
+  
+export default connect(mapStateToProps, null)(Favorites);
+  
+

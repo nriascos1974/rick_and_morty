@@ -7,7 +7,7 @@ export default function SearchBar({ onSearch }) {
   function random() {
     const characterRandom = Math.floor(Math.random() *826)
     setCaracter(characterRandom)
-    //console.log(character)
+
     return characterRandom
   }
 
