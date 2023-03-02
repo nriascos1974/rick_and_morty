@@ -9,9 +9,9 @@ import Login from "./components/Login/Login";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Favorites from "./components/Favorites/Favorites";
 import { connect } from "react-redux";
-import { deleteFavorites } from "./redux/actions";
+import { deleteFavorites, cleanFavorites } from "./redux/actions";
 
-export function App({deleteFavorites}) {
+export function App({ deleteFavorites, cleanFavorites }) {
   const [characters, setCharacters] = useState([]);
 
   //!*Hooks para capturar la url solicitada por el usuario, en este caso la primera que se pide es la "/" con esta voy a validar para renderizar la NavBar, useLocation devuelve un objeto y este tiene la propiedad pathname
@@ -34,6 +34,7 @@ export function App({deleteFavorites}) {
     //!* Si presionan el Boton Clean, el parametro Chacter viene vacio y se limpia el estado de Characters
     if (!character) {
       setCharacters([]);
+      cleanFavorites();
       return;
     }
 
@@ -66,7 +67,7 @@ export function App({deleteFavorites}) {
   //!* Funcion para cerrar cada tarjeta
   function onClose(character) {
     const filterCharacter = characters.filter((char) => char.id !== character);
-    deleteFavorites(character)
+    deleteFavorites(character);
     setCharacters(filterCharacter);
   }
 
@@ -75,15 +76,16 @@ export function App({deleteFavorites}) {
     if (userData.password === password && userData.username === username) {
       setAccess(true);
       setCharacters([]);
+      cleanFavorites();
       navigate("/home");
-    }else{
+    } else {
       alert("User Name/Password Incorrectos");
     }
   }
 
   //!*Esto no nos dejará navegar por la aplicación, al menos que ingresemos la información correcta!
   useEffect(() => {
-    !access && navigate("/")
+    !access && navigate("/");
   }, [access]);
 
   return (
@@ -109,9 +111,8 @@ export function App({deleteFavorites}) {
 export const mapDispatchToProps = (dispatch) => {
   return {
     deleteFavorites: (id) => dispatch(deleteFavorites(id)),
+    cleanFavorites: () => dispatch(cleanFavorites()),
   };
 };
 
 export default connect(null, mapDispatchToProps)(App);
-
-

@@ -7,25 +7,45 @@ function Nav({ onSearch }) {
   return (
     <nav className={styles.Nav}>
       <div className={styles.navLink}>
-        <NavLink to="/home">
+        <NavLink
+          to="/home"
+          className={({ isActive }) =>
+            isActive ? styles.active : styles.disable
+          }
+        >
           <span>
             <strong>Home</strong>
           </span>
         </NavLink>
 
-        <NavLink to="/about">
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? styles.active : styles.disable
+          }
+        >
           <span>
             <strong>About</strong>
           </span>
         </NavLink>
 
-        <NavLink to="/favorites">
+        <NavLink
+          to="/favorites"
+          className={({ isActive }) =>
+            isActive ? styles.active : styles.disable
+          }
+        >
           <span>
             <strong>Favorites</strong>
           </span>
         </NavLink>
 
-        <NavLink to="/">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? styles.active : styles.disable
+          }
+        >
           <span>
             <strong>Logout</strong>
           </span>

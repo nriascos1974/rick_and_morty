@@ -20,3 +20,14 @@
   font-size: 20px;
   width: 70%;
 }
+
+
+.active {
+  color: brown;
+  font-weight: bold;
+  text-decoration: none;
+}
+.disable {
+  color: #f6f4e6;
+  text-decoration: none;
+}
