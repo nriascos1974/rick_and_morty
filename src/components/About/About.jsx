@@ -1,6 +1,10 @@
 import React from "react";
 import yo from "../../images/yo.png";
+import git from "../../images/icon-git.png";
+import ig from "../../images/icon-ig.png";
+import linkin from "../../images/icon-in.png";
 import styles from "./About.module.css";
+
 
 function About() {
   return (
@@ -9,27 +13,47 @@ function About() {
         About
       </h1>
       <div className={styles.foto}>
-        <img className={styles.image} src={yo} alt="" />
-        <p style={{width:'40%', textAlign:"justify"}}>Yo soy <strong>Nestor Jair Riascos Mosquera</strong>, Ingeniero de Sistemas, vivo en la ciudad de Medellín, Antioquia - Colombia. Desarrollador de esta Aplicación. </p>
+        <div>
+          <img className={styles.image} src={yo} alt="" />
+        </div>
+        <div>
+          <p style={{ width: "20%", textAlign: "justify" }}>
+            Yo soy <strong>Nestor Jair Riascos Mosquera</strong>, Ingeniero de
+            Sistemas, proximamente Desarrollador Fullstack (SoyHenry), vivo en la ciudad de Medellín, Antioquia - Colombia. 
+            <br /><br />
+            
+              <li>
+                <a href="https://www.linkedin.com/in/nestor-j-riascos-m-37b58622a/" target="_blank">
+                  <img className={styles.git} src={linkin} alt="linkin" />
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/nriascos1974" target="_blank">
+                  <img className={styles.git} src={git} alt="git" />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/nestor_riascos/" target="_blank">
+                  <img className={styles.git} src={ig} alt="ig" />
+                </a>
+              </li>
+          
+          </p>
+        </div>
       </div>
-      <p style={{ color: "white", textAlign: "center", marginLeft: "40px" }}>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius quam
-        possimus laudantium doloribus ut excepturi, aliquid tenetur, cum saepe
-        natus optio veritatis odit dolorem cumque amet quas iure iste ullam quod
-        incidunt magni asperiores sapiente aspernatur. Eligendi unde magnam iure
-        non commodi illum quia sunt molestiae, reprehenderit optio sint ullam
-        deleniti illo harum voluptatem aut provident architecto praesentium
-        quae? Veritatis id in qui, similique fugiat cupiditate voluptatem
-        corrupti veniam perferendis quis? Maiores eos veritatis vel magni id
-        quibusdam perferendis repellendus, pariatur et molestiae excepturi a
-        aliquam fugiat reiciendis, accusamus suscipit! Reprehenderit porro,
-        perferendis iusto quam culpa sapiente neque nulla omnis accusantium
-        alias eaque corporis excepturi aspernatur nesciunt? Explicabo neque amet
-        sequi recusandae est, officia perspiciatis reiciendis vero ipsa corrupti
-        error odio obcaecati illum, ratione quibusdam accusantium, nemo natus
-        optio facere architecto mollitia voluptatem debitis. Consequuntur nisi
-        vitae suscipit reiciendis nostrum, vel quod saepe esse aliquid, ullam
-        modi fuga, hic velit!
+      <p style={{ color: "white", textAlign: "left", marginLeft: "40px", fontSize:"20px" }}>
+        Desarrollo realizado aplicando los conocimientos adquiridos en el Módulo 2 Bootcamp <strong>SoyHenry</strong>.
+        <br /><br />
+        Esta aplicación ha sido desarrorrada con:
+        <ul>
+          <li>React</li>
+          <li>React-Redux</li>
+          <li>CSS</li>
+          <li>JavaScript ES6</li>
+          <li>Componentes de Clase y de Función</li>
+          <li>Consumo de API con Fetch y Axios</li>
+          <li>Hooks</li>
+        </ul>
       </p>
     </div>
   );

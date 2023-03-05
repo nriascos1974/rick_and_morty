@@ -32,18 +32,27 @@ const reducer = (state = initialState, action) => {
       };
 
     case ORDER:
+      let orderCharacter = [...state.allCharacters];
+
+      if (action.payload === "Ascendente") {
+        orderCharacter.sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+      } else {
+        orderCharacter.sort((a, b) =>
+          b.name.localeCompare(a.name)
+        );
+      }
+
       return {
         ...state,
-        myFavorites:
-          action.payload === "Ascendente"
-            ? allCharacters.sort((a, b) => a.id < b.id)
-            : allCharacters.sort((a, b) => a.id > b.id),
+        myFavorites: orderCharacter,
       };
 
     case UNFILTER:
       return {
         ...state,
-        myFavorites: allCharacters,
+        myFavorites: state.allCharacters,
       };
 
     case ADD_FAVORITE:
@@ -57,6 +66,9 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         myFavorites: state.myFavorites.filter((f) => f.id !== action.payload),
+        allCharacters: state.allCharacters.filter(
+          (f) => f.id !== action.payload
+        ),
       };
 
     default:

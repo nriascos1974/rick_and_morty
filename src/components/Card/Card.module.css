@@ -1,11 +1,18 @@
 .container {
-  margin-top: 30px;
-  border: 1px solid grey;
-  background-color: #4b87f3;
-  border-radius: 10px;
+  margin-top: 30px;  
   max-width: 240px; /* Cambiamos "width" por "max-width" para que el ancho máximo se pueda reducir */
   padding: 5px;
+  --border-radius: 15px;
+  --border-width: 4px;
+  appearance: none;
+  position: relative;
+  border: 0;
+  background: rgb(5, 5, 22);
+  color: #fff;
+  z-index: 2;
+  border-radius: 15px;
   box-shadow: 0 0 10px rgb(211, 206, 206);
+ 
 }
 
 .image {
@@ -112,3 +119,4 @@
   }
 
 }
+

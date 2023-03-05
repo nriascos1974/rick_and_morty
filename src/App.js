@@ -16,8 +16,7 @@ export function App({ deleteFavorites, cleanFavorites }) {
 
   //!*Hooks para capturar la url solicitada por el usuario, en este caso la primera que se pide es la "/" con esta voy a validar para renderizar la NavBar, useLocation devuelve un objeto y este tiene la propiedad pathname
   const { pathname } = useLocation();
-  console.log("UseLocation: ", pathname);
-
+ 
   //!*Hooks para para redireccionar rutas
   const navigate = useNavigate();
 
@@ -99,7 +98,7 @@ export function App({ deleteFavorites, cleanFavorites }) {
           element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/favorites" element={<Favorites />} onClose={onClose}  />
 
         <Route path="/detail/:detailId" element={<Detail />} />
         <Route path="*" element={<NoFound />} />

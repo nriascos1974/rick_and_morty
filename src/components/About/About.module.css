@@ -1,9 +1,23 @@
-.image{
-    border-radius: 30px;
-    width: 10%;
-    margin-right: 85%;
+.image {
+  border-radius: 30px;
+  width: 50%;
 }
-.foto{
-    color: white;
-    font-size: 20px;
+
+.git {
+  border-radius: 30px;
+  width: 30px;
+  margin-right: 50px;
+}
+
+.foto {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  color: white;
+  font-size: 20px;
+}
+
+li {
+  list-style: none;
 }

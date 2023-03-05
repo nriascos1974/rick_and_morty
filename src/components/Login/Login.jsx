@@ -77,6 +77,9 @@ function Login({ login }) {
             <button className={styles.Button} type="submit">
               <strong>Login</strong>
             </button>
+            <br />
+            <p style={{ marginBottom: "1px" }}>User : nriascos@gmail.com</p>
+            <p style={{ marginTop: "1px" }}>Password : ABcd12345</p>
           </div>
         </div>
       </form>
