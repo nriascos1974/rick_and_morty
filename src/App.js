@@ -42,7 +42,8 @@ export function App({ deleteFavorites, cleanFavorites }) {
     const URL_BASE = "https://be-a-rym.up.railway.app/api";
     const API_KEY = "c9c4684eb62f.3cbe7e7fb6376e8e878d";
 
-    fetch(`${URL_BASE}/character/${character}?key=${API_KEY}`)
+    //fetch(`${URL_BASE}/character/${character}?key=${API_KEY}`)
+    fetch(`http://localhost:3001/rickandmorty/character/${character}`)
       .then((response) => response.json())
       .then((data) => {
         //!* Si la API devuelve un Character que no esta agregado lo agrega al arreglo
