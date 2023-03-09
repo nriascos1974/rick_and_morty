@@ -6,13 +6,14 @@ import { TfiControlBackward } from "react-icons/tfi";
 function Detail(props) {
   const { detailId } = useParams();
 
-  const URL_BASE = "https://be-a-rym.up.railway.app/api";
-  const API_KEY = "c9c4684eb62f.3cbe7e7fb6376e8e878d";
+  /* const URL_BASE = "https://be-a-rym.up.railway.app/api";
+  const API_KEY = "c9c4684eb62f.3cbe7e7fb6376e8e878d"; */
 
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
-    fetch(`${URL_BASE}/character/${detailId}?key=${API_KEY}`)
+    //fetch(`${URL_BASE}/character/${detailId}?key=${API_KEY}`)
+    fetch(`http://localhost:3001/rickandmorty/detail/${detailId}`)
       .then((response) => response.json())
       .then((char) => {
         if (char.name) {
