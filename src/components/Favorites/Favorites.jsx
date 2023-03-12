@@ -1,15 +1,33 @@
+import axios from "axios";
 import Card from "../Card/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { filterCards, orderCards, unfilterCards } from "../../redux/actions";
 import "./Favorites.module.css";
-import styles  from "./Favorites.module.css"
-// import { useEffect } from "react";
+import styles from "./Favorites.module.css";
+import { useState, useEffect } from "react";
+// import {  } from "react";
 
-export default function Favorites({onClose}) {
+export default function Favorites({ onClose }) {
   const dispatch = useDispatch();
 
-  const myFavorites = useSelector(state => state.myFavorites);
-  
+  //const myFavorites = useSelector(state => state.myFavorites);
+
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/rickandmorty/fav")
+      .then((response) => {
+        // Manejar la respuesta del servidor
+
+        setFavorites(response.data);
+
+      })
+      .catch((error) => {
+        // Manejar el error de la petición
+        console.log(error.error);
+      });
+  }, []);
 
   const handlerOrder = (event) => {
     const order = event.target.value;
@@ -22,10 +40,10 @@ export default function Favorites({onClose}) {
     else dispatch(filterCards(filter));
   };
 
-  console.table(myFavorites);
+  //console.table(myFavorites);
 
   return (
-    <div 
+    <div
       style={{
         display: "flex",
         flexWrap: "wrap",
@@ -36,15 +54,23 @@ export default function Favorites({onClose}) {
       <div className={styles.Nav}>
         <div>
           <select className={styles.input} onChange={handlerOrder} name="order">
-          <option value="" selected disabled hidden>Choose here Order</option>
+            <option value="" selected disabled hidden>
+              Choose here Order
+            </option>
             <option value="Ascendente">Ascendente</option>
             <option value="Descendente">Descendente</option>
           </select>
         </div>
 
         <div>
-          <select className={styles.input} onChange={handlerFilter} name="filter">
-          <option value="" selected disabled hidden>Choose here Filter</option>
+          <select
+            className={styles.input}
+            onChange={handlerFilter}
+            name="filter"
+          >
+            <option value="" selected disabled hidden>
+              Choose here Filter
+            </option>
             <option value="All">All</option>
             <option value="Female">Female</option>
             <option value="Genderless">Genderless</option>
@@ -54,15 +80,15 @@ export default function Favorites({onClose}) {
         </div>
       </div>
 
-      <div 
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        flexDirection: "row",
-        justifyContent: "space-around",
-      }}
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          flexDirection: "row",
+          justifyContent: "space-around",
+        }}
       >
-        {myFavorites.map((card, index) => (
+        {favorites.map((card) => (
           <Card
             style={{ flexbasis: "20%" }}
             key={card.id}

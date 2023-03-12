@@ -10,13 +10,14 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Favorites from "./components/Favorites/Favorites";
 import { connect } from "react-redux";
 import { deleteFavorites, cleanFavorites } from "./redux/actions";
+import axios from "axios";
 
 export function App({ deleteFavorites, cleanFavorites }) {
   const [characters, setCharacters] = useState([]);
 
   //!*Hooks para capturar la url solicitada por el usuario, en este caso la primera que se pide es la "/" con esta voy a validar para renderizar la NavBar, useLocation devuelve un objeto y este tiene la propiedad pathname
   const { pathname } = useLocation();
- 
+
   //!*Hooks para para redireccionar rutas
   const navigate = useNavigate();
 
@@ -67,8 +68,20 @@ export function App({ deleteFavorites, cleanFavorites }) {
   //!* Funcion para cerrar cada tarjeta
   function onClose(character) {
     const filterCharacter = characters.filter((char) => char.id !== character);
-    deleteFavorites(character);
+    /* deleteFavorites(character); */
     setCharacters(filterCharacter);
+    axios
+        .delete(`http://localhost:3001/rickandmorty/fav/${character}`)
+        .then((response) => {
+          // Manejar la respuesta del servidor
+          
+          /* setFavorites(response.data); */
+
+        })
+        .catch((error) => {
+          // Manejar el error de la petición
+          console.log(error.error);
+        });
   }
 
   //!* Funcion que valida si el usuario y contraseña son validos para redireccionar al home
@@ -99,7 +112,7 @@ export function App({ deleteFavorites, cleanFavorites }) {
           element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route path="/about" element={<About />} />
-        <Route path="/favorites" element={<Favorites />} onClose={onClose}  />
+        <Route path="/favorites" element={<Favorites />} onClose={onClose} />
 
         <Route path="/detail/:detailId" element={<Detail />} />
         <Route path="*" element={<NoFound />} />
