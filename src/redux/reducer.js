@@ -1,10 +1,11 @@
 import {
   ADD_FAVORITE,
   DELETE_FAVORITE,
-  CLEAN_FAVORITE,
+/*   CLEAN_FAVORITE, */
   FILTER,
   ORDER,
   UNFILTER,
+  GET_FAVORITE,
 } from "./type-actions";
 
 const initialState = {
@@ -14,11 +15,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case CLEAN_FAVORITE:
+    
+    /* case CLEAN_FAVORITE:
       return {
         ...state,
         myFavorites: [],
-      };
+      }; */
 
     case FILTER:
       const { allCharacters } = state;
@@ -55,20 +57,24 @@ const reducer = (state = initialState, action) => {
         myFavorites: state.allCharacters,
       };
 
+    case GET_FAVORITE:
+      return {
+        ...state,
+        myFavorites: action.payload,
+      };
+
     case ADD_FAVORITE:
       return {
         ...state,
-        myFavorites: [...state.allCharacters, action.payload],
-        allCharacters: [...state.allCharacters, action.payload],
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
 
     case DELETE_FAVORITE:
       return {
         ...state,
-        myFavorites: state.myFavorites.filter((f) => f.id !== action.payload),
-        allCharacters: state.allCharacters.filter(
-          (f) => f.id !== action.payload
-        ),
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
 
     default:

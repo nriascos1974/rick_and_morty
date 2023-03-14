@@ -8,12 +8,12 @@ import NoFound from "./components/NoFound/NoFound";
 import Login from "./components/Login/Login";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Favorites from "./components/Favorites/Favorites";
-import { connect } from "react-redux";
-import { deleteFavorites, cleanFavorites } from "./redux/actions";
-import axios from "axios";
-
-export function App({ deleteFavorites, cleanFavorites }) {
+import { connect, useDispatch } from "react-redux";
+import { deleteFavorites, getFavorites } from "./redux/actions";
+/* cleanFavorites , cleanFavorites*/
+export function App({ deleteFavorites}) {
   const [characters, setCharacters] = useState([]);
+  const dispatch = useDispatch();
 
   //!*Hooks para capturar la url solicitada por el usuario, en este caso la primera que se pide es la "/" con esta voy a validar para renderizar la NavBar, useLocation devuelve un objeto y este tiene la propiedad pathname
   const { pathname } = useLocation();
@@ -34,7 +34,7 @@ export function App({ deleteFavorites, cleanFavorites }) {
     //!* Si presionan el Boton Clean, el parametro Chacter viene vacio y se limpia el estado de Characters
     if (!character) {
       setCharacters([]);
-      cleanFavorites();
+      /* cleanFavorites(); */
       return;
     }
 
@@ -68,20 +68,8 @@ export function App({ deleteFavorites, cleanFavorites }) {
   //!* Funcion para cerrar cada tarjeta
   function onClose(character) {
     const filterCharacter = characters.filter((char) => char.id !== character);
-    /* deleteFavorites(character); */
+    deleteFavorites(character);
     setCharacters(filterCharacter);
-    axios
-        .delete(`http://localhost:3001/rickandmorty/fav/${character}`)
-        .then((response) => {
-          // Manejar la respuesta del servidor
-          
-          /* setFavorites(response.data); */
-
-        })
-        .catch((error) => {
-          // Manejar el error de la petición
-          console.log(error.error);
-        });
   }
 
   //!* Funcion que valida si el usuario y contraseña son validos para redireccionar al home
@@ -89,12 +77,17 @@ export function App({ deleteFavorites, cleanFavorites }) {
     if (userData.password === password && userData.username === username) {
       setAccess(true);
       setCharacters([]);
-      cleanFavorites();
+      /* cleanFavorites(); */
       navigate("/home");
     } else {
       alert("User Name/Password Incorrectos");
     }
   }
+
+  //*Trae los favoritos que xistan en base de datos desde el servidor
+  useEffect(() => {
+    dispatch(getFavorites());
+  }, []);
 
   //!*Esto no nos dejará navegar por la aplicación, al menos que ingresemos la información correcta!
   useEffect(() => {
@@ -124,7 +117,7 @@ export function App({ deleteFavorites, cleanFavorites }) {
 export const mapDispatchToProps = (dispatch) => {
   return {
     deleteFavorites: (id) => dispatch(deleteFavorites(id)),
-    cleanFavorites: () => dispatch(cleanFavorites()),
+    /* cleanFavorites: () => dispatch(cleanFavorites()), */
   };
 };
 

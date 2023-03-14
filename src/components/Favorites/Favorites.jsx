@@ -1,34 +1,16 @@
-import axios from "axios";
 import Card from "../Card/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { filterCards, orderCards, unfilterCards } from "../../redux/actions";
 import "./Favorites.module.css";
 import styles from "./Favorites.module.css";
-import { useState, useEffect } from "react";
-// import {  } from "react";
+
+
 
 export default function Favorites({ onClose }) {
   const dispatch = useDispatch();
 
-  //const myFavorites = useSelector(state => state.myFavorites);
-
-  const [favorites, setFavorites] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3001/rickandmorty/fav")
-      .then((response) => {
-        // Manejar la respuesta del servidor
-
-        setFavorites(response.data);
-
-      })
-      .catch((error) => {
-        // Manejar el error de la petición
-        console.log(error.error);
-      });
-  }, []);
-
+  const myFavorites = useSelector(state => state.myFavorites);
+  
   const handlerOrder = (event) => {
     const order = event.target.value;
     dispatch(orderCards(order));
@@ -39,8 +21,6 @@ export default function Favorites({ onClose }) {
     if (filter === "All") dispatch(unfilterCards());
     else dispatch(filterCards(filter));
   };
-
-  //console.table(myFavorites);
 
   return (
     <div
@@ -88,7 +68,7 @@ export default function Favorites({ onClose }) {
           justifyContent: "space-around",
         }}
       >
-        {favorites.map((card) => (
+        {myFavorites.map((card) => (
           <Card
             style={{ flexbasis: "20%" }}
             key={card.id}
