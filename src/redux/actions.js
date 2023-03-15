@@ -1,7 +1,7 @@
 import {
   ADD_FAVORITE,
   DELETE_FAVORITE,
- /*  CLEAN_FAVORITE, */
+  /*  CLEAN_FAVORITE, */
   FILTER,
   ORDER,
   UNFILTER,
@@ -10,15 +10,15 @@ import {
 import axios from "axios";
 
 export const addFavorites = (favorite) => {
-  return function (dispatch) {
-    axios
-      .post("http://localhost:3001/rickandmorty/favs", favorite)
-      .then((response) => {
-        return dispatch({
-          type: ADD_FAVORITE,
-          payload: response.data,
-        });
-      });
+  return async (dispatch) => {
+    const response = await axios.post(
+      "http://localhost:3001/rickandmorty/favs",
+      favorite
+    );
+    return dispatch({
+      type: ADD_FAVORITE,
+      payload: response.data,
+    });
   };
 };
 
@@ -30,30 +30,25 @@ export const addFavorites = (favorite) => {
  */
 
 export const getFavorites = () => {
-  return function (dispatch) {
-    axios
-      .get(`http://localhost:3001/rickandmorty/fav/`)
-      .then((response) => {
-        return dispatch({
-          type: GET_FAVORITE,
-          payload: response.data,
-        });
-      });
+  return async (dispatch) => {
+    const response = await axios.get(`http://localhost:3001/rickandmorty/fav/`);
+    return dispatch({
+      type: GET_FAVORITE,
+      payload: response.data,
+    });
   };
 };
 
 export const deleteFavorites = (id) => {
-  return function (dispatch) {
-    axios
-      .delete(`http://localhost:3001/rickandmorty/fav/${id}`)
-      .then((response) => {
-        return dispatch({
-          type: DELETE_FAVORITE,
-          payload: response.data,
-        });
-      });
+  return async (dispatch) => {
+    const response = await axios.delete(
+      `http://localhost:3001/rickandmorty/fav/${id}`
+    );
+    return dispatch({
+      type: DELETE_FAVORITE,
+      payload: response.data,
+    });
   };
-  
 };
 
 export const filterCards = (gender) => {
