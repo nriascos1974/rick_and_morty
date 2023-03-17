@@ -10,6 +10,7 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Favorites from "./components/Favorites/Favorites";
 import { connect, useDispatch } from "react-redux";
 import { deleteFavorites, getFavorites } from "./redux/actions";
+import axios from "axios";
 /* cleanFavorites , cleanFavorites*/
 export function App({ deleteFavorites}) {
   const [characters, setCharacters] = useState([]);
@@ -73,15 +74,22 @@ export function App({ deleteFavorites}) {
   }
 
   //!* Funcion que valida si el usuario y contraseña son validos para redireccionar al home
-  function login(userData) {
+  async function login(userData) {
     if (userData.password === password && userData.username === username) {
       setAccess(true);
       setCharacters([]);
-      /* cleanFavorites(); */
+      // cleanFavorites(); 
       navigate("/home");
     } else {
       alert("User Name/Password Incorrectos");
     }
+    /* try {
+      const response = await axios.post("http://localhost:3001",userData)
+    } catch (error) {
+      console.log(error)
+    }
+ */
+
   }
 
   //*Trae los favoritos que xistan en base de datos desde el servidor
