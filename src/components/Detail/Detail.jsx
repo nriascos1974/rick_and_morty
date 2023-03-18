@@ -35,11 +35,11 @@ function Detail(props) {
           <button className={styles.Button}><TfiControlBackward/></button>
         </Link>
         <div className={styles.infoContainer}>
-          <h3>Status: {character.status}</h3>
-          <h3>Species: {character.species}</h3>
-          <h3>Gender: {character.gender}</h3>
-          {character.origin && <h3>Origin: {character.origin.name}</h3>}
-          {character.location && <h3>Location: {character.location.name}</h3>}
+          <h3>Status : {character.status}</h3>
+          <h3>Species : {character.species}</h3>
+          <h3>Gender : {character.gender}</h3>
+          {character.origin && <h3>Origin : {character.origin.name}</h3>}
+          {character.location && <h3>Location : {character.location.name}</h3>}
         </div>
         <div >
           <h1 style={{fontSize:'30px'}}>{character.name}</h1>

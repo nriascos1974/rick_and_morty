@@ -8,20 +8,12 @@ import styles from "./About.module.css";
 
 function About() {
   return (
-    <div>
-      <h1 style={{ color: "white", textAlign: "left", marginLeft: "70px" }}>
-        About
-      </h1>
-      <div className={styles.foto}>
-        <div>
-          <img className={styles.image} src={yo} alt="" />
-        </div>
-        <div>
-          <p style={{ width: "20%", textAlign: "justify" }}>
-            Yo soy <strong>Nestor Jair Riascos Mosquera</strong>, Ingeniero de
-            Sistemas, proximamente Desarrollador Fullstack (SoyHenry), vivo en la ciudad de Medellín, Antioquia - Colombia. 
+    <div className={styles.detailContainer}>
+      <div className={styles.container}>
+         <div className={styles.infoContainer}>
+          <p style={{ width: "50%", textAlign: "justify" }}>
+            Ingeniero de Sistemas, proximamente Desarrollador Fullstack (SoyHenry), vivo en la ciudad de Medellín, Antioquia - Colombia. 
             <br /><br />
-            
               <li>
                 <a href="https://www.linkedin.com/in/nestor-j-riascos-m-37b58622a/" target="_blank">
                   <img className={styles.git} src={linkin} alt="linkin" />
@@ -36,25 +28,31 @@ function About() {
                 <a href="https://www.instagram.com/nestor_riascos/" target="_blank">
                   <img className={styles.git} src={ig} alt="ig" />
                 </a>
-              </li>
-          
+              </li>        
           </p>
-        </div>
-      </div>
-      <p style={{ color: "white", textAlign: "left", marginLeft: "40px", fontSize:"20px" }}>
-        Desarrollo realizado aplicando los conocimientos adquiridos en el Módulo 2 Bootcamp <strong>SoyHenry</strong>.
+		  <p style={{ width: "50%", textAlign: "center" }}>
+        Desarrollo realizado aplicando los conocimientos adquiridos durante el Bootcamp <strong>SoyHenry</strong>.
         <br /><br />
         Esta aplicación ha sido desarrorrada con:
         <ul>
+          <li><strong>* FrontEnd *</strong></li>
           <li>React</li>
           <li>React-Redux</li>
-          <li>CSS</li>
-          <li>JavaScript ES6</li>
-          <li>Componentes de Clase y de Función</li>
-          <li>Consumo de API con Fetch y Axios</li>
-          <li>Hooks</li>
+          <li>CSS3</li>
+          <li><strong>* BackEnd *</strong></li>
+          <li>NodeJs</li>          
+          <li>ExpressJs</li>
+          <li><strong>* Base de Datos *</strong></li>
+          <li>PostgreSql</li>
+          <li>Sequelize</li>
         </ul>
       </p>
+        </div>
+        <div >
+          <h1 style={{fontSize:'30px'}}>Nestor Jair Riasco Mosquera</h1>
+          <img className={styles.image} src={yo} alt="Nestor Jair Riasco Mosquera"></img>
+        </div>
+      </div>
     </div>
   );
 }

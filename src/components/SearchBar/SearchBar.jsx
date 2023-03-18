@@ -1,4 +1,4 @@
-import { useState } from "react";
+/* import { useState } from "react";
 import style from "./SearchBar.module.css";
 
 export default function SearchBar({ onSearch }) {
@@ -32,6 +32,49 @@ export default function SearchBar({ onSearch }) {
       <button className={style.Button} onClick={() => onSearch(character)}>
         Add
       </button>
+    </div>
+  );
+}
+ */
+import { useState } from "react";
+import style from "./SearchBar.module.css";
+
+
+export default function SearchBar({ onSearch }) {
+
+  const [character, setCaracter] = useState("");
+
+  function random() {
+    const characterRandom = Math.floor(Math.random() * 826);
+    setCaracter(characterRandom);
+
+    return characterRandom;
+  }
+
+  return (
+    <div className={style.busqueda}>
+      <button
+        className={`${style.Button} ${style["Button-clean"]}`}
+        onClick={() => onSearch("")}
+      ></button>
+
+      <button
+        className={`${style.Button} ${style["Button-random"]}`}
+        onClick={() => onSearch(random())}
+      ></button>
+
+      <input
+        value={character}
+        onChange={(e) => setCaracter(e.target.value)}
+        className={style.input}
+        type="search"
+        placeholder="Search…"
+      />
+
+      <button
+        className={`${style.Button} ${style["Button-add"]}`}
+        onClick={() => onSearch(character)}
+      ></button>
     </div>
   );
 }

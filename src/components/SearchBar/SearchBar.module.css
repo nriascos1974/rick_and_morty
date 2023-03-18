@@ -1,4 +1,4 @@
-.container {
+/* .container {
     display: flex;
     margin: auto;
     width: 60%;
@@ -53,6 +53,70 @@
   
   .Button:hover {
     background-color: #0b0d7290;
-  }
-  
-  
+  } */
+
+.busqueda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.input {
+  margin: 0 10px;
+  padding: 10px;
+  width: 100px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.Button-clean {
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../images/clean.png");
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.Button-random {
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../images/random.png");
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.Button-add {
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../images/add.png");
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.Button-add:hover {
+  background-image: url("../../images/addhover.png");
+}
+.Button-clean:hover {
+  background-image: url("../../images/cleanhover.png");
+}
+
+.Button-random:hover {
+  background-image: url("../../images/randomhover.png");
+}
