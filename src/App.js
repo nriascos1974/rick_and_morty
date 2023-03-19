@@ -8,6 +8,7 @@ import NoFound from "./components/NoFound/NoFound";
 import Login from "./components/Login/Login";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Favorites from "./components/Favorites/Favorites";
+import Pages from "./components/Paginas/Pages";
 import { connect, useDispatch } from "react-redux";
 import { deleteFavorites, getFavorites } from "./redux/actions";
 import axios from "axios";
@@ -114,6 +115,7 @@ export function App({ deleteFavorites}) {
         />
         <Route path="/about" element={<About />} />
         <Route path="/favorites" element={<Favorites />} onClose={onClose} />
+        <Route path="/pages" element={<Pages />} onClose={onClose} />
 
         <Route path="/detail/:detailId" element={<Detail />} />
         <Route path="*" element={<NoFound />} />

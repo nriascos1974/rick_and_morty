@@ -1,0 +1,160 @@
+.Nav {
+  display: flex;
+  border-radius: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-right: 30px;
+  margin-left: 30px;
+  padding: 0%;
+  bottom: 20px;
+  height: 50px;
+  background-color: rgba(87, 82, 231, 0.075);
+}
+
+
+
+.input {
+  border: 2px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.container {
+  margin-top: 30px;
+  max-width: 240px; /* Cambiamos "width" por "max-width" para que el ancho máximo se pueda reducir */
+  padding: 5px;
+  --border-radius: 15px;
+  --border-width: 4px;
+  appearance: none;
+  position: relative;
+  border: 0;
+  background: rgb(5, 5, 22);
+  color: #fff;
+  z-index: 2;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgb(211, 206, 206);
+}
+.container:hover {
+  transform: translateY(-3%);
+}
+
+.image {
+  border-radius: 16px;
+  margin: 0 auto; /* Agregamos "margin: 0 auto" para centrar la imagen horizontalmente */
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.Cargando {
+ align-items: center;
+  border-radius: 250px;
+  margin: 0 auto; /* Agregamos "margin: 0 auto" para centrar la imagen horizontalmente */
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background-color: aqua;
+}
+
+.buttonContainer button:first-child {
+  margin-left: 0; /* Quitamos el margen izquierdo del primer botón */
+}
+
+.buttonContainer button:hover {
+  background-color: #0b0d7290;
+}
+
+.dataContainer {
+  position: relative;
+}
+
+.name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Utilizamos una anchura del 100% para que el nombre ocupe todo el ancho disponible */
+  border-radius: 10px;
+  background-color: rgba(8, 6, 116, 0.329);
+  color: white;
+  padding: 5px;
+  margin: 0;
+}
+
+.SG {
+  display: flex;
+  color: aliceblue;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+  /*  */
+  margin-top: 10px;
+}
+
+/* Media query para pantallas de hasta 768px de ancho */
+@media only screen and (max-width: 768px) {
+  /* Definimos estilos específicos para pantallas de hasta 768px de ancho */
+
+  .container {
+    max-width: 180px;
+    margin-top: 20px;
+  }
+
+  .SG {
+    flex-direction: column; /* Cambiamos la dirección del flexbox a columna /
+    text-align: center; / Centramos el texto /
+    font-size: 16px; / Reducimos el tamaño de la fuente */
+  }
+
+  .buttonContainer {
+    justify-content: center; /* Centramos los botones */
+    margin-top: 20px;
+  }
+
+  .buttonContainer button {
+    margin: 0 5px; /* Reducimos el espacio entre los botones */
+  }
+
+  .name {
+    font-size: 12px; /* Reducimos el tamaño de la fuente */
+    position: static;
+  }
+}
+
+.Button-siguiente {
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../images/right.png");
+  cursor: pointer;
+  margin-right: 30%;
+}
+
+.Button-anterior {
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../images/left.png");
+  cursor: pointer;
+  margin-left: 30%;
+}
+
+.Button-anterior:hover {
+  background-image: url("../../images/lefthover.png");
+}
+.Button-siguiente:hover {
+  background-image: url("../../images/righthover.png");
+}
