@@ -1,10 +1,11 @@
 .Nav {
+  position: relative;
   display: flex;
   border-radius: 10px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-top: 5px;
+  margin-top: 25px;
   margin-right: 30px;
   margin-left: 30px;
   padding: 0%;
@@ -13,20 +14,35 @@
   background-color: rgba(87, 82, 231, 0.075);
 }
 
-
+.NavBottom {
+  position: relative;
+  display: flex;
+  border-radius: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding: 0%;
+  height: 50px;
+  margin-right: 30px;
+  margin-left: 30px;
+  background-color: rgba(87, 82, 231, 0.075);
+}
 
 .input {
+  position: absolute;
+  margin-left: 42%;
   border: 2px solid #ccc;
   padding: 5px;
   border-radius: 5px;
   font-size: 16px;
   width: 100%;
-  max-width: 400px;
+  max-width: 200px;
 }
 
 .container {
   margin-top: 30px;
-  max-width: 240px; /* Cambiamos "width" por "max-width" para que el ancho máximo se pueda reducir */
+  max-width: 260px; /* Cambiamos "width" por "max-width" para que el ancho máximo se pueda reducir */
   padding: 5px;
   --border-radius: 15px;
   --border-width: 4px;
@@ -38,6 +54,8 @@
   z-index: 2;
   border-radius: 15px;
   box-shadow: 0 0 10px rgb(211, 206, 206);
+  margin-right: 20px;
+  margin-left: 20px;
 }
 .container:hover {
   transform: translateY(-3%);
@@ -52,7 +70,7 @@
 }
 
 .Cargando {
- align-items: center;
+  align-items: center;
   border-radius: 250px;
   margin: 0 auto; /* Agregamos "margin: 0 auto" para centrar la imagen horizontalmente */
   display: block;
@@ -136,7 +154,10 @@
   background-position: center;
   background-image: url("../../images/right.png");
   cursor: pointer;
-  margin-right: 30%;
+  margin-right: 35%;
+  position: absolute;
+  top: 1;
+  right: 0;
 }
 
 .Button-anterior {
@@ -149,7 +170,43 @@
   background-position: center;
   background-image: url("../../images/left.png");
   cursor: pointer;
-  margin-left: 30%;
+  margin-left: 35%;
+  position: absolute;
+  top: 1;
+  right: 80;
+}
+
+.BPage-siguiente {
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../images/right.png");
+  cursor: pointer;
+  margin-right: 10%;
+  position: absolute;
+  top: 1;
+  right: 0;
+}
+
+.BPage-anterior {
+  width: 40px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../images/left.png");
+  cursor: pointer;
+  margin-left: 10%;
+  position: absolute;
+
+  top: 1;
+  left: 0;
 }
 
 .Button-anterior:hover {
@@ -157,4 +214,26 @@
 }
 .Button-siguiente:hover {
   background-image: url("../../images/righthover.png");
+}
+
+.BPage-anterior:hover {
+  background-image: url("../../images/lefthover.png");
+}
+.BPage-siguiente:hover {
+  background-image: url("../../images/righthover.png");
+}
+
+
+.Bpages {
+
+  justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  max-width: 100%;
+  position: absolute;
+  top: 1;
+  right: 700px;
+
+
 }
